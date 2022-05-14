@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "pandas_sigmoid.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/LCR2001/AI_Thinking/blob/main/pandas_sigmoid\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ddBmwl0yThRz",
+        "outputId": "668640ff-9f7a-4497-c844-0e5ada1f521d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[[[[9.99999694e-01]]\n",
+            "\n",
+            "   [[8.75651076e-27]]\n",
+            "\n",
+            "   [[4.53978687e-05]]\n",
+            "\n",
+            "   [[9.52574127e-01]]]]]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "a = np.array([[[[1, 3.5, 80],[1, 3.0, 10],[1 , 4.0, 50],[1, 4.3, 60]]]])\n",
+        "b = np.array([[[-100], [10],[1]]])\n",
+        "\n",
+        "def dot_possibility(A,B):\n",
+        "  return np.dot(A,B)\n",
+        "\n",
+        "def sigmoid(x):\n",
+        "  return 1 / (1+np.exp(-x))\n",
+        "\n",
+        "def matrix_sigmoid(A, B, func_list):\n",
+        "  f1 = func_list[0]\n",
+        "  f2 = func_list[1]\n",
+        "\n",
+        "  F1 = f1(A,B)\n",
+        "  F2 = f2(F1)\n",
+        "  return F2\n",
+        "\n",
+        "list_func = [dot_possibility, sigmoid]\n",
+        "\n",
+        "print(matrix_sigmoid(a,b,list_func))\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "a = np.array([[[[1, 3.7, 30],[1, 3.7, 80],[1 , 4.0, 20],[1, 4.0, 70]]]])\n",
+        "b = np.array([[[-100], [10],[1]]])\n",
+        "\n",
+        "def dot_possibility(A,B):\n",
+        "  return np.dot(A,B)\n",
+        "\n",
+        "def sigmoid(x):\n",
+        "  return 1 / (1+np.exp(-x))\n",
+        "\n",
+        "def matrix_sigmoid(A, B, func_list):\n",
+        "  f1 = func_list[0]\n",
+        "  f2 = func_list[1]\n",
+        "\n",
+        "  F1 = f1(A,B)\n",
+        "  F2 = f2(F1)\n",
+        "  return F2\n",
+        "\n",
+        "list_func = [dot_possibility, sigmoid]\n",
+        "\n",
+        "print(matrix_sigmoid(a,b,list_func))\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RUhmFqLgf0Y7",
+        "outputId": "5129c6c2-ae27-4f4d-a143-bd2f986a2cf6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[[[[4.65888615e-15]]\n",
+            "\n",
+            "   [[9.99999959e-01]]\n",
+            "\n",
+            "   [[4.24835426e-18]]\n",
+            "\n",
+            "   [[9.99954602e-01]]]]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "## 추론 결과\n",
+        "## ---->위의 주어진 분류기는 학기의 평점만을 중요시하는 것이 아니라, 평점과 더불어 학습 시간도 큰 비중을 차지하며 계산이 이루어짐을 알 수 있다."
+      ],
+      "metadata": {
+        "id": "0VMeAzYSi2_b"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
