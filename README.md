@@ -1,1 +1,1 @@
-# AI_Thinking
+### AI Thinking and Problem Solving
